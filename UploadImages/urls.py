@@ -20,13 +20,12 @@ from UploadImages import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-	path('', imagesList),
+    path('', imagesList),
     path('admin/', admin.site.urls),
     path('images_list/', imagesList),
     re_path(r'add_image/.{0,9999}', addImage, name='add_image'),
     re_path(r'edit_image/.{0,9999}', editImage, name='edit_image'),
 
-   
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
