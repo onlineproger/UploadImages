@@ -1,0 +1,24 @@
+{% extends 'admin/base.html' %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    Список изображений
+</div>
+{% endblock %}
+
+{% block content %}
+<h1>Список изображений</h1>
+
+<div>
+    {% if images %}
+    {% for image in images %}
+    <p><a href="/edit_image/{{image}}">{{image}}</a></p>
+    {% endfor %}
+    {% else %}
+    Нет доступных изображений
+    {% endif %}
+</div>
+<br>
+<a href="/add_image/">Добавить изображение</a>
+
+{% endblock %}

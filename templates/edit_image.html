@@ -1,0 +1,28 @@
+{% extends 'admin/base.html' %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="/images_list/">Список изображений</a> › <a href="/add_image/">Загрузка изображений</a> › Изменение
+    изображений
+</div>
+{% endblock %}
+
+
+{% block content %}
+<a href="/images_list/">Назад к списку</a>
+<form method="POST" enctype="multipart/form-data" action="{% url 'edit_image' %}">
+{% csrf_token %}
+<div>
+    <br><br>
+    <p><b>Ширина</b><br>
+        <input type="text" placeholder='{{img.width}}' value='{{img.width}}' size="10" name='width'>
+        <br>
+    <p><b>Высота</b><br>
+        <input type="text" placeholder='{{img.height}}' value="{{img.height}}" size="10" name='height'>
+        <br>
+    <p><img src="/media/{{img.name}}"></p>
+    <br>
+    <input type="submit" name='action' value="Отправить">
+</div>
+</form>
+{% endblock%}
